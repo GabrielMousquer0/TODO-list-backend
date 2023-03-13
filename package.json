@@ -2,9 +2,10 @@
   "name": "list-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "apollo-server": "^3.12.0",
     "graphql": "^16.6.0",
     "knex": "^2.4.2",
+    "nodemon": "^2.0.21",
     "pg": "^8.10.0"
   }
 }
