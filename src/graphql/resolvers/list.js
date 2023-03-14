@@ -1,4 +1,4 @@
-const list = () => [
+ const lists = () => [
     {
         id: 1,
         content: 'lorem impsum',
@@ -6,11 +6,10 @@ const list = () => [
     }
 ]
 
-const listResolver = {
+ const listResolver = {
     Query: {
-        list
+        lists 
     }
 }
 
-module.exports.listResolver
-
+module.exports = { listResolver }

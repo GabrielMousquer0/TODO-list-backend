@@ -1,15 +1,15 @@
 const { gql } = require("apollo-server")
 
-const listType = gql`
+ const listType = gql`
 extend type Query {
-    list: [List] 
+    lists: [List] 
 }
 
 type List {
-    title: String!
-    content: String!
-    id: Int!
+    title: String
+    content: String
+    id: Int
 }
 `
 
-module.exports.listType
+module.exports = { listType }
