@@ -1,6 +1,6 @@
 const { gql } = require("apollo-server")
-const { userType } = require("./typeDefs/index.js")
-const { userResolver } = require("./resolvers/index.js")
+const { userType } = require("./typeDefs")
+const { userResolver } = require("./resolvers")
 
 const rootTypeDefs = gql`
 type Query {
@@ -14,6 +14,8 @@ const rootResolvers = {
     }
 }
 
-module.exports.resolver = [rootResolvers, userResolver]
-module.exports.typeDefs = [rootTypeDefs, userType]
+module.exports =  {
+ resolvers: [rootResolvers, userResolver],
+ typeDefs: [rootTypeDefs, userType]
+}
 
