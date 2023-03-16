@@ -1,1 +1,1 @@
-module.exports = require("./user.js")
+module.exports = require("./list.js")
