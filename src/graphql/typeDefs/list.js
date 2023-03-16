@@ -1,18 +1,17 @@
 const { gql } = require("apollo-server")
 
- const listType = gql`
-extend type Query {
-    lists: [List]
+const listType = gql`
+    extend type Query {
+        lists: [List!]!
 }
 
-extend type Mutation {
-createLists: [List]
+    extend type Mutation {
+        createLists(content: String!, title: String!): [List!]!
 }
 
-type List {
-    title: String
-    content: String
-    id: Int
+    type List {
+        title: String!
+        content: String!
 }
 `
 

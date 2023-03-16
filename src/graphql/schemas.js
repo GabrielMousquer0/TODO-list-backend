@@ -4,11 +4,11 @@ const  { listResolver }  = require("./resolvers")
 
 const rootTypeDefs = gql`
 type Query {
-    _empty: Boolean
+    _empty: Boolean!
 }
 
 type Mutation {
-    _empty: Boolean
+    _empty: Boolean!
 }
 `
 

@@ -1,44 +1,27 @@
- const lists = () => [
-    {
-        id: 1,
-        content: 'lorem lorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsuimpsum',
-        title: 'List1'
-    }, 
-    {
-        id: 2,
-        content: 'dkadka',
-        title: 'dkd'
-    }, 
-    {
-        id: 2,
-        content: 'dkadka',
-        title: 'dkd'
-    }, 
-    {
-        id: 2,
-        content: 'dkadka',
-        title: 'dkd'
-    }, 
-    {
-        id: 2,
-        content: 'dkadka',
-        title: 'dkd'
-    }, 
-    {
-        id: 2,
-        content: 'dkadka',
-        title: 'dkd'
-    }
-]
+ const myArray = [{
+    content: 'impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsulorem impsuimpsum',
+    title: 'List1'
+}, 
+{
 
-
-const createLists = () => {
-return lists
-}
+    content: 'dkadka',
+    title: 'dkd'
+}, 
+{
+    content: 'dkadka',
+    title: 'dkd'
+}]
+ 
+ const lists = () => myArray
 
  const listResolver = {
     Query: { lists },
-    Mutation: { createLists }
+    Mutation: { createLists(_, args) {
+        myArray.push(args)
+        },
+
+    },
+    
 }
 
 module.exports = { listResolver }
