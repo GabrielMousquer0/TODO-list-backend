@@ -1,3 +1,4 @@
+const { createLists, editElement, deleteElement } = require('./mutations')
 const lists = (_, __, { myLists }) => myLists 
 
 const listResolver = {
@@ -5,29 +6,9 @@ const listResolver = {
         lists
     },
     Mutation: {
-        async createLists(_, args, { knex, myLists }) {
-            await knex('lists').insert(args)
-            return myLists
-
-        },
-        async deleteElement(_, {
-            id
-        }, { knex, myLists }) {
-            await knex('lists').delete().where({
-                id: id
-            })
-            return myLists
-
-        },
-        async editElement(_, {
-            content,
-            id
-        }, { knex, myLists }) {
-            await knex('lists').update({
-                content: content
-            }).where('id', '=', id)
-            return myLists
-        }
+        createLists,
+        editElement,
+        deleteElement
     },
 
 }
