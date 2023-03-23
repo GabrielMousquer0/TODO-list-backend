@@ -1,5 +1,5 @@
 const { createLists, editElement, deleteElement } = require('./mutations')
-const lists = (_, __, { myLists }) => myLists 
+const { lists } = require("./query")
 
 const listResolver = {
     Query: {
