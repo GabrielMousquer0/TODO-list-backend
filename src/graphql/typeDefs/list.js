@@ -8,16 +8,15 @@ const listType = gql`
 }
 
     extend type Mutation {
-        createLists(content: String!, title: String!, id: ID!): [List!]
-        deleteElement(id: ID!): [List!]
-        editElement(id: ID!, content: String!): [List!]
+        createLists(content: String!, title: String!, id: ID!): List!
+        deleteElement(id: ID!): Boolean!
+        editElement(id: ID!, content: String!): List!
 }
 
     type List {
         title: String!
         content: String!
         id: ID!
-
 }
 `
 
