@@ -2,9 +2,10 @@ const knex = require('../../database')
 
 const context = () => {
     return {
-        knex,
-        myLists: knex('lists').select('*')
+        knex
     }
 }
 
-module.exports = { context }
+module.exports = {
+    context
+}
