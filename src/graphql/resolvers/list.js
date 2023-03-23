@@ -1,30 +1,41 @@
- const myArray = [{
-    content: 'test0',
-    title: 'List0',
-    id: Math.floor(Math.random() * 10000000)
-}]
- 
- const lists = () => myArray
+const knex = require('../../database/')
+const myLists = knex('lists').select('*')
 
- const listResolver = {
-    Query: { lists },
-    Mutation: { 
-        createLists(_, args) {
-           myArray.push(args)
-            return myArray
-        },
-        deleteElement(_, {id}) {
-            const indice = myArray.indexOf(id)
-           const [result] = myArray.splice(indice, 1)
-            return result
-        },
-        editElement(_, { content, id }) {
-            const index = myArray.findIndex((a) => a.id === id)
-            myArray[index].content = content
-            return myArray
-        } 
+const lists = () => myLists
+
+const listResolver = {
+    Query: {
+        lists
     },
-    
+    Mutation: {
+        async createLists(_, args) {
+
+            await knex('lists').insert(args)
+            return myLists
+
+        },
+        async deleteElement(_, {
+            id
+        }) {
+            await knex('lists').delete().where({
+                id: id
+            })
+            return myLists
+
+        },
+        async editElement(_, {
+            content,
+            id
+        }) {
+            await knex('lists').update({
+                content: content
+            }).where('id', '=', id)
+            return myLists
+        }
+    },
+
 }
 
-module.exports = { listResolver }
+module.exports = {
+    listResolver
+}
