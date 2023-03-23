@@ -1,4 +1,6 @@
-const { gql } = require("apollo-server")
+const {
+    gql
+} = require("apollo-server")
 
 const listType = gql`
     extend type Query {
@@ -19,4 +21,6 @@ const listType = gql`
 }
 `
 
-module.exports = { listType }
+module.exports = {
+    listType
+}

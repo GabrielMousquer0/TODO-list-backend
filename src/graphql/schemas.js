@@ -1,6 +1,13 @@
-const { gql } = require("apollo-server")
-const  { listType }  = require("./typeDefs")
-const  { listResolver }  = require("./resolvers")
+const {
+    gql
+} = require("apollo-server")
+const {
+    listType
+} = require("./typeDefs")
+const {
+    listResolver
+} = require("./resolvers")
+
 
 const rootTypeDefs = gql`
 type Query {
@@ -15,7 +22,7 @@ type Mutation {
 
 const rootResolvers = {
     Query: {
-        _empty: () => true, 
+        _empty: () => true,
     },
     Mutation: {
         _empty: () => true,
@@ -23,6 +30,6 @@ const rootResolvers = {
 }
 
 module.exports = {
-  resolvers: [rootResolvers, listResolver],
-  typeDefs: [rootTypeDefs, listType]  
+    resolvers: [rootResolvers, listResolver],
+    typeDefs: [rootTypeDefs, listType]
 }
