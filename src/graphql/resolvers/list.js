@@ -1,32 +1,32 @@
-const lists = (_, __, { knex }) => knex('lists').select('*') 
+const lists = (_, __, { myLists }) => myLists 
 
 const listResolver = {
     Query: {
         lists
     },
     Mutation: {
-        async createLists(_, args, { knex }) {
+        async createLists(_, args, { knex, myLists }) {
             await knex('lists').insert(args)
-            return knex('lists').select('*')
+            return myLists
 
         },
         async deleteElement(_, {
             id
-        }, { knex }) {
+        }, { knex, myLists }) {
             await knex('lists').delete().where({
                 id: id
             })
-            return knex('lists').select('*')
+            return myLists
 
         },
         async editElement(_, {
             content,
             id
-        }, { knex }) {
+        }, { knex, myLists }) {
             await knex('lists').update({
                 content: content
             }).where('id', '=', id)
-            return knex('lists').select('*')
+            return myLists
         }
     },
 
