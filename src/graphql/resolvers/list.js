@@ -1,36 +1,32 @@
-const knex = require('../../database/')
-const myLists = knex('lists').select('*')
-
-const lists = () => myLists
+const lists = (_, __, { knex }) => knex('lists').select('*') 
 
 const listResolver = {
     Query: {
         lists
     },
     Mutation: {
-        async createLists(_, args) {
-
+        async createLists(_, args, { knex }) {
             await knex('lists').insert(args)
-            return myLists
+            return knex('lists').select('*')
 
         },
         async deleteElement(_, {
             id
-        }) {
+        }, { knex }) {
             await knex('lists').delete().where({
                 id: id
             })
-            return myLists
+            return knex('lists').select('*')
 
         },
         async editElement(_, {
             content,
             id
-        }) {
+        }, { knex }) {
             await knex('lists').update({
                 content: content
             }).where('id', '=', id)
-            return myLists
+            return knex('lists').select('*')
         }
     },
 
