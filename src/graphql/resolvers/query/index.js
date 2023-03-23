@@ -1,3 +1,7 @@
-const lists = (_, __, { myLists }) => myLists 
+const lists = (_, __, {
+    knex
+}) => knex('lists').select("*")
 
-module.exports = { lists }
+module.exports = {
+    lists
+}
