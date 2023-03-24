@@ -10,7 +10,7 @@ const listType = gql`
     extend type Mutation {
         createLists(content: String!, title: String!, id: ID!): List!
         deleteElement(id: ID!): Boolean!
-        editElement(id: ID!, content: String!): List!
+        editElement(id: ID!, content: String, title: String): List!
 }
 
     type List {
